@@ -1,0 +1,68 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(220, 231, 240);
+    color: black;
+    font-family: Arial, sans-serif;
+}
+
+header {
+    background-color: rgb(147, 215, 234);
+    color: white;
+    padding: 20px;
+
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+main {
+    flex-grow: 1;
+    margin: 0 auto;
+    padding: 30px 20px;
+     
+}
+footer{
+    margin-top: auto;
+    background-color:  rgb(143, 173, 243);
+    color: aliceblue;
+    padding: 20px;
+
+}
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+form div {
+    display: flex;
+    flex-direction: column;
+
+}
+button {
+    align-self: flex-start;
+}
+a {
+    color: darkblue;
+}
+button[type="submit"]{
+    background-color: gray;
+    color: while;
+    padding: 8px 14px;
+    border: none;
+}
+.delete-button {
+    background-color: red;
+    color: white;
+    padding: 8px 14px;
+    border: none;
+}
+.feature{
+    background-color: lightyellow;
+    border: 2px solid orange;
+    padding: 10px;
+}

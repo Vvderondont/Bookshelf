@@ -1,58 +1,100 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Bookshelf
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+An in-progress book-catalogue web app built as part of my third-semester web development coursework at the University of Southern Denmark (SDU).
 
-## About Laravel
+## Project overview
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Bookshelf is a small application for organizing a personal collection of books. I am using it to practise building a web application with Laravel, including routes, Blade views, request validation, and Eloquent models.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Current implementation
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+- A book-collection page with sample book entries.
+- Browser-side interactions to add, select, and remove entries from the displayed list. These changes currently last only for the current page session.
+- A Blade form for entering a book's title, author, year, and genre.
+- Laravel routes and a controller that validates the submitted title.
+- A `Book` Eloquent model with fillable book attributes.
 
-## Learning Laravel
+## Work in progress
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+- Saving book records to the database and loading them into the collection.
+- Completing create, read, update, and delete (CRUD) flows.
+- Expanding validation, user feedback, and project-specific automated tests.
 
-In addition, [Laracasts](https://laracasts.com) contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+The database migration is currently a scaffold, so book data is not yet persisted.
 
-You can also watch bite-sized lessons with real-world projects on [Laravel Learn](https://laravel.com/learn), where you will be guided through building a Laravel application from scratch while learning PHP fundamentals.
+## Technology stack
 
-## Agentic Development
+- PHP 8.3+
+- Laravel 13
+- Blade templating
+- Eloquent ORM
+- SQLite configuration
+- JavaScript, HTML, and CSS
+- Composer, npm, and Vite
+- Pest test setup
 
-Laravel's predictable structure and conventions make it ideal for AI coding agents like Claude Code, Cursor, and GitHub Copilot. Install [Laravel Boost](https://laravel.com/docs/ai) to supercharge your AI workflow:
+## Application flow
+
+The app uses Laravel web routes to serve Blade pages. The add-book form submits to a controller, where the title is validated. Database-backed storage and the full route-to-model flow are still being developed.
+
+## Getting started
+
+### Requirements
+
+- PHP 8.3 or later with the SQLite PDO extension
+- Composer
+- Node.js and npm
+
+### Install and run
+
+Clone the repository and enter the project folder:
 
 ```bash
-composer require laravel/boost --dev
-
-php artisan boost:install
+git clone https://github.com/Vvderondont/Bookshelf.git
+cd Bookshelf
 ```
 
-Boost provides your agent 15+ tools and skills that help agents build Laravel applications while following best practices.
+Install the PHP and JavaScript dependencies, prepare the local environment, and build the assets:
 
-## Contributing
+```bash
+composer run setup
+```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+Start the local development services:
 
-## Code of Conduct
+```bash
+composer run dev
+```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+The app is served locally by Laravel. Its database file and environment settings are local setup files and are not committed to this repository.
 
-## Security Vulnerabilities
+## Tests
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+Run the Laravel test suite with:
 
-## License
+```bash
+composer test
+```
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+The repository currently contains the Laravel/Pest starter test setup; Bookshelf-specific test coverage is still to be added.
+
+## Repository structure
+
+```text
+app/
+  Http/Controllers/BookController.php
+  Models/Book.php
+database/
+  migrations/
+resources/views/books/
+  create.blade.php
+  index.blade.php
+public/
+  css/style.css
+  scripts/app.js
+routes/web.php
+```
+
+## Project status
+
+This project is actively being developed as a learning project. Features and architecture may change as I build out database persistence and the complete book-management workflow.
